@@ -1,0 +1,3 @@
+home    ngôi nhà
+bottle  chai
+glasses kính
