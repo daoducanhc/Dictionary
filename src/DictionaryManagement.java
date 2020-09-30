@@ -8,7 +8,7 @@ public class DictionaryManagement {
     public Dictionary dictionary = new Dictionary();
 
     public Word getWordByIndex(int index){
-        return dictionary.getDict().get(index);
+        return dictionary.Dict.get(index);
     }
 
     public void insertFromCommandLine() {
@@ -56,12 +56,30 @@ public class DictionaryManagement {
     }
 
     public int getIndexByWord(String word) {
-        for (int i = 0; i < dictionary.getDict().size(); i++) {
-            if (word.equals(dictionary.getDict().get(i).getWord_target())) {
+        for (int i = 0; i < dictionary.Dict.size(); i++) {
+            if (word.equals(dictionary.Dict.get(i).getWord_target())) {
                 return i;
             }
         }
-
         return -1;
+    }
+
+    public void addWord(){
+        Word word = new Word();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Nhập từ tiếng Anh: ");
+        word.setWord_target(sc.nextLine());
+        System.out.print("Nhập nghĩa của từ: ");
+        word.setWord_explain(sc.nextLine());
+        dictionary.Dict.add(word);
+    }
+    public void editWord(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Nhập từ bạn muốn sửa: ");
+        int index = getIndexByWord(sc.nextLine());
+        System.out.println("Sửa từ tiêng Anh: ");
+        dictionary.Dict.get(index).setWord_target(sc.nextLine());
+        System.out.println("Sửa nghĩa: ");
+        dictionary.Dict.get(index).setWord_explain(sc.nextLine());
     }
 }

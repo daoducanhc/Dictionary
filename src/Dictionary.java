@@ -3,15 +3,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Dictionary {
-    private ArrayList<Word> Dict = new ArrayList<>();
+    protected ArrayList<Word> Dict = new ArrayList<>();
 
-    public ArrayList<Word> getDict() {
-        return Dict;
-    }
+//    public ArrayList<Word> getDict() {
+//        return Dict;
+//    }
 
-    public void setDict(ArrayList<Word> Dict) {
-        this.Dict = Dict;
-    }
+//    public void setDict(ArrayList<Word> Dict) {
+//        this.Dict = Dict;
+//    }
 
     public void add(Word word) {
         Dict.add(word);
