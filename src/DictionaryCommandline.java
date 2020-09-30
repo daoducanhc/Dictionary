@@ -25,6 +25,8 @@ public class DictionaryCommandline {
         a.dictionaryManagement.insertFromFile();
        // a.dictionaryManagement.dictionaryLookup();
         //a.showAllWord();
-        System.out.print(a.dictionaryManagement.getIndexByWord("gas stove"));
+        //System.out.println(a.dictionaryManagement.getIndexByWord("gas stove"));
+        String x = a.dictionaryManagement.dictionaryLookup();
+        System.out.print(x);
     }
 }

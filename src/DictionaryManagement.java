@@ -44,17 +44,24 @@ public class DictionaryManagement {
         }
     }
 
-    
+    public String dictionaryLookup() {
+        System.out.print("nhap tu muon tim:");
+        Scanner sc = new Scanner(System.in);
+        String word = sc.nextLine();
+        System.out.print(word);
+        int index = getIndexByWord(word);
+        if (index != -1)
+            return getWordByIndex(index).getWord_explain();
+        return "not found!!!";
+    }
 
     public int getIndexByWord(String word) {
-        int index = 0;
         for (int i = 0; i < dictionary.getDict().size(); i++) {
-            index ++;
             if (word.equals(dictionary.getDict().get(i).getWord_target())) {
-                break;
+                return i;
             }
         }
 
-        return index;
+        return -1;
     }
 }
