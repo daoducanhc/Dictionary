@@ -44,7 +44,7 @@ public class DictionaryManagement {
         }
     }
 
-    void INset(){
+    public void testMaster1(){
 
     }
 }
