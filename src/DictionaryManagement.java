@@ -43,8 +43,7 @@ public class DictionaryManagement {
 
         }
     }
-
-    void INset(){
+    void newBranch(){
 
     }
 }
