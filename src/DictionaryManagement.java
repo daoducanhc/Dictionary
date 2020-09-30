@@ -1,12 +1,15 @@
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
+import java.lang.invoke.SwitchPoint;
 import java.util.Scanner;
-import java.io.BufferedReader;
 
 public class DictionaryManagement {
 
     public Dictionary dictionary = new Dictionary();
+
+    public Word getWordByIndex(int index){
+        return dictionary.getDict().get(index);
+    }
 
     public void insertFromCommandLine() {
         int num_word;
@@ -27,31 +30,15 @@ public class DictionaryManagement {
     //File file = new File(FILE_URL);
     public void insertFromFile() throws IOException {
         String FILE_URL = "./data/dictionaries.txt";
-//        File file = new File(FILE_URL);
-//        Scanner sc = new Scanner(file);
-        BufferedReader reader = new BufferedReader(new FileReader(FILE_URL));
-        String temp;
-        while ((temp = reader.readLine()) != null) {
-            String[] words = temp.split("\t");
-            System.out.println(temp);
-            System.out.println(words[1]);
-//            for(String each : words){
-//                if(!"".equals(each)){
-//                    System.out.println(each);
-//                }
-//            }
+        File file = new File(FILE_URL);
+        Scanner sc = new Scanner(file);
 
-//            try{
-//                String target = words[0];
-//                String explain = words[1];
-//                System.out.println(target);
-//                System.out.println(explain);
-//                dictionary.add(new Word(target, explain));
-//
-//            }
-//            catch (Exception e){
-//                System.out.println(e);
-//            }
+        while (sc.hasNextLine()) {
+            String temp = sc.nextLine();
+            String[] words = temp.split("\\t");
+            if(words.length == 2){
+                dictionary.add(new Word(words[0], words[1]));
+            }
 
         }
     }

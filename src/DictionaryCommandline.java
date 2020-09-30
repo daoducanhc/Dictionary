@@ -7,12 +7,13 @@ public class DictionaryCommandline {
     public DictionaryManagement dictionaryManagement = new DictionaryManagement();
 
     public void showAllWord() {
+        System.out.println(dictionaryManagement.dictionary.getDict().size());
         System.out.println("|English           |Vietnamese");
+
         for (int i = 0; i < dictionaryManagement.dictionary.getDict().size(); i++) {
-            System.out.println("|"+ dictionaryManagement.dictionary.getDict().get(i).getWord_target()
-                    + "         "
-                    + "|"
-                    + dictionaryManagement.dictionary.getDict().get(i).getWord_explain());
+            String target = dictionaryManagement.getWordByIndex(i).getWord_target();
+            String explain = dictionaryManagement.getWordByIndex(i).getWord_explain();
+            System.out.format("|%s\t|%s\n", target, explain);
         }
     }
 

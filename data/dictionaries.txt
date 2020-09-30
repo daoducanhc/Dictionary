@@ -1,3 +1,4 @@
-home    ngôi nhà
-bottle  chai
-glasses kính
+home	ngôi nhà
+bottle	chai
+glasses	kính
+gas stove	bếp gas
