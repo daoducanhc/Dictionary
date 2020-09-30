@@ -12,6 +12,7 @@ public class DictionaryManagement {
     }
 
     public void insertFromCommandLine() {
+        //alo
         int num_word;
         System.out.print("Bạn muốn nhập bao nhiêu từ mới: ");
         Scanner sc = new Scanner(System.in);
@@ -42,4 +43,6 @@ public class DictionaryManagement {
 
         }
     }
+
+
 }
