@@ -43,8 +43,7 @@ public class DictionaryManagement {
 
         }
     }
-
-    public void testMaster1(){
+    void newBranch(){
 
     }
 }
