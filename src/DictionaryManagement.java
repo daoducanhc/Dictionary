@@ -43,7 +43,18 @@ public class DictionaryManagement {
 
         }
     }
-    void newBranch(){
-        //test 1
+
+    
+
+    public int getIndexByWord(String word) {
+        int index = 0;
+        for (int i = 0; i < dictionary.getDict().size(); i++) {
+            index ++;
+            if (word.equals(dictionary.getDict().get(i).getWord_target())) {
+                break;
+            }
+        }
+
+        return index;
     }
 }
