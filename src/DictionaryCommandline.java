@@ -2,6 +2,7 @@
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class DictionaryCommandline {
     public DictionaryManagement dictionaryManagement = new DictionaryManagement();
@@ -25,11 +26,14 @@ public class DictionaryCommandline {
         a.dictionaryManagement.insertFromFile();
         a.showAllWord();
         a.dictionaryManagement.addWord();
+        a.dictionaryManagement.addWord();
         a.showAllWord();
-        a.dictionaryManagement.editWord();
-        a.showAllWord();
-        a.dictionaryManagement.removeWord();
-        a.showAllWord();
+        System.out.println(a.dictionaryManagement.dictionarySearcher());
+
+//        a.dictionaryManagement.editWord();
+//        a.showAllWord();
+//        a.dictionaryManagement.removeWord();
+//        a.showAllWord();
        // a.dictionaryManagement.dictionaryLookup();
         //a.showAllWord();
         //System.out.println(a.dictionaryManagement.getIndexByWord("gas stove"));

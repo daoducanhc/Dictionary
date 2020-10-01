@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.IOException;
 import java.lang.invoke.SwitchPoint;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DictionaryManagement {
@@ -88,5 +89,19 @@ public class DictionaryManagement {
         System.out.print("\nXóa\nNhập từ bạn muốn xóa: ");
         int index = getIndexByWord(sc.nextLine());
         dictionary.Dict.remove(index);
+    }
+
+    public ArrayList<String> dictionarySearcher(){
+        ArrayList<String> result = new ArrayList<>();
+        Scanner sc = new Scanner(System.in);
+        System.out.print("\nSearch\nNhập từ bạn muốn search: ");
+        String target = sc.nextLine();
+        for (int i = 0; i < dictionary.Dict.size(); i++) {
+            String temp = dictionary.Dict.get(i).getWord_target();
+            if (temp.indexOf(target) == 0) {
+                result.add(temp);
+            }
+        }
+        return result;
     }
 }
