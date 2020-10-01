@@ -29,7 +29,6 @@ public class DictionaryManagement {
 
     //File file = new File(FILE_URL);
     public void insertFromFile() throws IOException {
-        //alo cai dmm
         String FILE_URL = "./data/dictionaries.txt";
         File file = new File(FILE_URL);
         Scanner sc = new Scanner(file);
