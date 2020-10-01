@@ -1,6 +1,6 @@
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.invoke.SwitchPoint;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -103,5 +103,19 @@ public class DictionaryManagement {
             }
         }
         return result;
+    }
+
+    public void dictionaryExportToFile(){
+        try {
+            FileWriter myWriter = new FileWriter("./data/dictionaries_export.txt");
+            for(Word word : dictionary.Dict) {
+                myWriter.write(String.format("%s\t%s\n", word.getWord_target(), word.getWord_explain()));
+            }
+            myWriter.close();
+        }
+        catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
 }

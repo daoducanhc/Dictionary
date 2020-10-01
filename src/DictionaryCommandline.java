@@ -26,9 +26,8 @@ public class DictionaryCommandline {
         a.dictionaryManagement.insertFromFile();
         a.showAllWord();
         a.dictionaryManagement.addWord();
-        a.dictionaryManagement.addWord();
         a.showAllWord();
-        System.out.println(a.dictionaryManagement.dictionarySearcher());
+        a.dictionaryManagement.dictionaryExportToFile();
 
 //        a.dictionaryManagement.editWord();
 //        a.showAllWord();
