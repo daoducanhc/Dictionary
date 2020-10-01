@@ -8,7 +8,7 @@ public class DictionaryManagement {
 
     public Dictionary dictionary = new Dictionary();
 
-    public Word getWordByIndex(int index){
+    public Word getWordByIndex(int index) {
         return dictionary.Dict.get(index);
     }
 
@@ -37,7 +37,7 @@ public class DictionaryManagement {
         while (sc.hasNextLine()) {
             String temp = sc.nextLine();
             String[] words = temp.split("\\t");
-            if(words.length == 2){
+            if (words.length == 2) {
                 dictionary.add(new Word(words[0], words[1]));
             }
 
@@ -64,7 +64,7 @@ public class DictionaryManagement {
         return -1;
     }
 
-    public void addWord(){
+    public void addWord() {
         Word word = new Word();
         Scanner sc = new Scanner(System.in);
         System.out.print("\nThêm từ mới\nNhập từ tiếng Anh: ");
@@ -74,7 +74,7 @@ public class DictionaryManagement {
         dictionary.Dict.add(word);
     }
 
-    public void editWord(){
+    public void editWord() {
         Scanner sc = new Scanner(System.in);
         System.out.print("\nSửa\nNhập từ bạn muốn sửa: ");
         int index = getIndexByWord(sc.nextLine());
@@ -84,14 +84,14 @@ public class DictionaryManagement {
         dictionary.Dict.get(index).setWord_explain(sc.nextLine());
     }
 
-    public void removeWord(){
+    public void removeWord() {
         Scanner sc = new Scanner(System.in);
         System.out.print("\nXóa\nNhập từ bạn muốn xóa: ");
         int index = getIndexByWord(sc.nextLine());
         dictionary.Dict.remove(index);
     }
 
-    public ArrayList<String> dictionarySearcher(){
+    public ArrayList<String> dictionarySearcher() {
         ArrayList<String> result = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         System.out.print("\nSearch\nNhập từ bạn muốn search: ");
@@ -105,15 +105,14 @@ public class DictionaryManagement {
         return result;
     }
 
-    public void dictionaryExportToFile(){
+    public void dictionaryExportToFile() {
         try {
             FileWriter myWriter = new FileWriter("./data/dictionaries_export.txt");
-            for(Word word : dictionary.Dict) {
+            for (Word word : dictionary.Dict) {
                 myWriter.write(String.format("%s\t%s\n", word.getWord_target(), word.getWord_explain()));
             }
             myWriter.close();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
