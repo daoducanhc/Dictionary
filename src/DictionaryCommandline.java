@@ -23,10 +23,17 @@ public class DictionaryCommandline {
         //a.dictionaryManagement.insertFromCommandLine();
 
         a.dictionaryManagement.insertFromFile();
+        a.showAllWord();
+        a.dictionaryManagement.addWord();
+        a.showAllWord();
+        a.dictionaryManagement.editWord();
+        a.showAllWord();
+        a.dictionaryManagement.removeWord();
+        a.showAllWord();
        // a.dictionaryManagement.dictionaryLookup();
         //a.showAllWord();
         //System.out.println(a.dictionaryManagement.getIndexByWord("gas stove"));
-        String x = a.dictionaryManagement.dictionaryLookup();
-        System.out.print(x);
+//        String x = a.dictionaryManagement.dictionaryLookup();
+//        System.out.print(x);
     }
 }

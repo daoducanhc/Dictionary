@@ -66,19 +66,27 @@ public class DictionaryManagement {
     public void addWord(){
         Word word = new Word();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nhập từ tiếng Anh: ");
+        System.out.print("\nThêm từ mới\nNhập từ tiếng Anh: ");
         word.setWord_target(sc.nextLine());
         System.out.print("Nhập nghĩa của từ: ");
         word.setWord_explain(sc.nextLine());
         dictionary.Dict.add(word);
     }
+
     public void editWord(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nhập từ bạn muốn sửa: ");
+        System.out.print("\nSửa\nNhập từ bạn muốn sửa: ");
         int index = getIndexByWord(sc.nextLine());
-        System.out.println("Sửa từ tiêng Anh: ");
+        System.out.print("Sửa từ tiêng Anh: ");
         dictionary.Dict.get(index).setWord_target(sc.nextLine());
-        System.out.println("Sửa nghĩa: ");
+        System.out.print("Sửa nghĩa: ");
         dictionary.Dict.get(index).setWord_explain(sc.nextLine());
+    }
+
+    public void removeWord(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("\nXóa\nNhập từ bạn muốn xóa: ");
+        int index = getIndexByWord(sc.nextLine());
+        dictionary.Dict.remove(index);
     }
 }
