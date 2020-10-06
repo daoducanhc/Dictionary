@@ -5,11 +5,11 @@ import java.util.ArrayList;
 public class Dictionary {
     protected ArrayList<Word> Dict = new ArrayList<>();
 
-//    public ArrayList<Word> getDict() {
+//    public ArrayList<sample.Word> getDict() {
 //        return Dict;
 //    }
 
-//    public void setDict(ArrayList<Word> Dict) {
+//    public void setDict(ArrayList<sample.Word> Dict) {
 //        this.Dict = Dict;
 //    }
 
