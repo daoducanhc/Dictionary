@@ -1,7 +1,11 @@
+package sample;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class DictionaryManagement {
@@ -30,7 +34,7 @@ public class DictionaryManagement {
 
     //File file = new File(FILE_URL);
     public void insertFromFile() throws IOException {
-        String FILE_URL = "./data/dictionaries.txt";
+        String FILE_URL = "data/dictionaries.txt";
         File file = new File(FILE_URL);
         Scanner sc = new Scanner(file);
 
@@ -45,14 +49,14 @@ public class DictionaryManagement {
     }
 
     public String dictionaryLookup() {
-        System.out.print("nhap tu muon tim:");
+        System.out.print("Nhập từ muốn tìm: ");
         Scanner sc = new Scanner(System.in);
         String word = sc.nextLine();
         System.out.print(word);
         int index = getIndexByWord(word);
         if (index != -1)
             return getWordByIndex(index).getWord_explain();
-        return "not found!!!";
+        return "Not found!!!";
     }
 
     public int getIndexByWord(String word) {
@@ -72,6 +76,7 @@ public class DictionaryManagement {
         System.out.print("Nhập nghĩa của từ: ");
         word.setWord_explain(sc.nextLine());
         dictionary.Dict.add(word);
+        this.dictionaryExportToFile();
     }
 
     public void editWord() {
@@ -82,6 +87,7 @@ public class DictionaryManagement {
         dictionary.Dict.get(index).setWord_target(sc.nextLine());
         System.out.print("Sửa nghĩa: ");
         dictionary.Dict.get(index).setWord_explain(sc.nextLine());
+        this.dictionaryExportToFile();
     }
 
     public void removeWord() {
@@ -89,6 +95,7 @@ public class DictionaryManagement {
         System.out.print("\nXóa\nNhập từ bạn muốn xóa: ");
         int index = getIndexByWord(sc.nextLine());
         dictionary.Dict.remove(index);
+        this.dictionaryExportToFile();
     }
 
     public ArrayList<String> dictionarySearcher() {
@@ -102,12 +109,13 @@ public class DictionaryManagement {
                 result.add(temp);
             }
         }
+        Collections.sort(result);
         return result;
     }
 
     public void dictionaryExportToFile() {
         try {
-            FileWriter myWriter = new FileWriter("./data/dictionaries_export.txt");
+            FileWriter myWriter = new FileWriter("data/dictionaries.txt");
             for (Word word : dictionary.Dict) {
                 myWriter.write(String.format("%s\t%s\n", word.getWord_target(), word.getWord_explain()));
             }
