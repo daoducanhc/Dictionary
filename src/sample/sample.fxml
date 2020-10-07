@@ -10,7 +10,9 @@
                 <TextField fx:id="Target" layoutX="6.0" layoutY="8.0" onAction="#textAction" prefHeight="38.0" prefWidth="216.0" />
                 <Button fx:id="button" layoutX="222.0" layoutY="8.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="80.0" text="Search" />
             <ListView fx:id="Listview" layoutX="6.0" layoutY="46.0" prefHeight="497.0" prefWidth="216.0" />
-            <Button fx:id="button2" layoutX="222.0" layoutY="46.0" mnemonicParsing="false" onAction="#speak" prefHeight="38.0" prefWidth="80.0" text="Speak" />
+            <Button fx:id="button2" layoutX="222.0" layoutY="46.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="80.0" text="Speak" />
+            <Button fx:id="add" layoutX="222.0" layoutY="91.0" mnemonicParsing="false" onAction="#add" text="+" />
+            <Button fx:id="delete" layoutX="222.0" layoutY="123.0" mnemonicParsing="false" onAction="#delete" text="-" />
             </children>
         </Pane>
         <Pane fx:id="Speak" layoutX="303.0" prefHeight="553.0" prefWidth="484.0">
