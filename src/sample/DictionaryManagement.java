@@ -1,5 +1,8 @@
 package sample;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -48,15 +51,15 @@ public class DictionaryManagement {
         }
     }
 
-    public String dictionaryLookup() {
-        System.out.print("Nhập từ muốn tìm: ");
-        Scanner sc = new Scanner(System.in);
-        String word = sc.nextLine();
-        System.out.print(word);
-        int index = getIndexByWord(word);
+    public String dictionaryLookup(String target) {
+//        System.out.print("Nhập từ muốn tìm: ");
+//        Scanner sc = new Scanner(System.in);
+//        String word = sc.nextLine();
+//        System.out.print(word);
+        int index = getIndexByWord(target);
         if (index != -1)
             return getWordByIndex(index).getWord_explain();
-        return "Not found!!!";
+        return "    ";
     }
 
     public int getIndexByWord(String word) {
@@ -98,11 +101,11 @@ public class DictionaryManagement {
         this.dictionaryExportToFile();
     }
 
-    public ArrayList<String> dictionarySearcher() {
+    public ArrayList<String> dictionarySearcher(String target) {
         ArrayList<String> result = new ArrayList<>();
-        Scanner sc = new Scanner(System.in);
-        System.out.print("\nSearch\nNhập từ bạn muốn search: ");
-        String target = sc.nextLine();
+//        Scanner sc = new Scanner(System.in);
+//        System.out.print("\nSearch\nNhập từ bạn muốn search: ");
+//        String target = sc.nextLine();
         for (int i = 0; i < dictionary.Dict.size(); i++) {
             String temp = dictionary.Dict.get(i).getWord_target();
             if (temp.indexOf(target) == 0) {

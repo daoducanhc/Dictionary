@@ -13,6 +13,7 @@ import javazoom.jl.decoder.JavaLayerException;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -33,56 +34,25 @@ public class Controller {
 
         DictionaryCommandline a = new DictionaryCommandline();
         String target = Target.getText().trim();
-        //      a.dictionaryManagement.insertFromFile();
         a.dictionaryManagement.insertFromFile();
 
         Target.setOnKeyPressed(keyEvent -> {
-            int count = 0;
             if (keyEvent.getCode().equals(KeyCode.ENTER)) {
-                for (int i = 0; i < a.dictionaryManagement.dictionary.Dict.size(); i++) {
-                    if (target.equals(a.dictionaryManagement.dictionary.Dict.get(i).getWord_target())) {
-                        Explain.setText(a.dictionaryManagement.dictionary.Dict.get(i).getWord_explain());
-                        count ++;
-                        break;
-                    }
-                }
+                Explain.setText(a.dictionaryManagement.dictionaryLookup(target));
 
-                if (count == 0) {
-                    Explain.setText("ERRO!!");
+                ArrayList<String> searcher = a.dictionaryManagement.dictionarySearcher(target);
+                for (String temp : searcher){
+                    Listview.getItems().add(temp);
                 }
-
-                for (int i = 0; i < a.dictionaryManagement.dictionary.Dict.size(); i++) {
-                    String temp = a.dictionaryManagement.dictionary.Dict.get(i).getWord_target();
-                    if (temp.indexOf(target) == 0) {
-                        Listview.getItems().add(temp);
-                    }
-                }
-
             }
         });
 
-//        for (int i = 0; i < a.dictionaryManagement.dictionary.Dict.size(); i++) {
-//            String temp = a.dictionaryManagement.dictionary.Dict.get(i).getWord_target();
-//            if (temp.indexOf(target) == 0) {
-//                Listview.getItems().add(temp);
-//            }
-//        }
-
         Listview.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-        ObservableList<String> list = Listview.getSelectionModel().getSelectedItems();
-
         Listview.setOnMouseClicked(mouseEvent -> {
             ObservableList<String> list1 = Listview.getSelectionModel().getSelectedItems();
-            String message = "";
             for (String m : list1) {
-                for (int i = 0; i < a.dictionaryManagement.dictionary.Dict.size(); i++) {
-                    if (m.equals(a.dictionaryManagement.dictionary.Dict.get(i).getWord_target())) {
-                        Explain.setText(a.dictionaryManagement.dictionary.Dict.get(i).getWord_explain());
-                    }
-                }
+                Explain.setText(a.dictionaryManagement.dictionaryLookup(m));
             }
-         //   System.out.print(message);
-
         });
     }
 

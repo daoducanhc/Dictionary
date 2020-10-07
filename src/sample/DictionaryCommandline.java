@@ -5,7 +5,9 @@ import java.io.IOException;
 public class DictionaryCommandline {
     public DictionaryManagement dictionaryManagement = new DictionaryManagement();
 
-//    public static void main(String[] args) throws IOException { }
+    public static void main(String[] args) throws IOException {
+
+    }
 
     public void showAllWord() {
         System.out.println(dictionaryManagement.dictionary.Dict.size());
