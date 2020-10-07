@@ -72,6 +72,16 @@ public class Controller {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @FXML
+    public void add(ActionEvent event) {
+        //todo
+    }
+
+    @FXML
+    public void delete(ActionEvent event) {
+        //todo
+    }
 }
 
 
