@@ -1,4 +1,6 @@
+hello	xin chao
 home	ngôi nhà
 bottle	chai
 glasses	kính
 gas stove	bếp gas
+hell	dia nguc
