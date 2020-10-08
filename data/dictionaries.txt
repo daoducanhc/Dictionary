@@ -1,7 +1,8 @@
-hello	xin chao
 home	ngôi nhà
 bottle	chai
 glasses	kính
 gas stove	bếp gas
 hell	dia nguc
-asd	sad
+a	a
+le minh hoang	le minh hoang
+duc anh	duc anh

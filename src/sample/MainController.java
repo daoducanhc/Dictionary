@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
@@ -78,21 +79,19 @@ public class MainController {
     @FXML
     public void add(ActionEvent event) throws IOException {
         Parent add_gui = FXMLLoader.load(getClass().getResource("addWordGUI.fxml"));
-        Stage stage = new Stage();
-        stage.setTitle("Add_GUI");
         Scene scene = new Scene(add_gui, 600, 400);
-        stage.setScene(scene);
-        stage.show();
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(scene);
+        window.show();
     }
 
     @FXML
     public void delete(ActionEvent event) throws IOException {
-        Parent remove_gui = FXMLLoader.load(getClass().getResource("removeWordGUI.fxml"));
-        Stage stage = new Stage();
-        stage.setTitle("Delete_GUI");
-        Scene scene = new Scene(remove_gui, 600, 400);
-        stage.setScene(scene);
-        stage.show();
+        Parent add_gui = FXMLLoader.load(getClass().getResource("removeWordGUI.fxml"));
+        Scene scene = new Scene(add_gui, 600, 400);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(scene);
+        window.show();
     }
 }
 
