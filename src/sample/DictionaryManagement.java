@@ -82,30 +82,21 @@ public class DictionaryManagement {
         this.dictionaryExportToFile();
     }
 
-    public void editWord() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("\nSửa\nNhập từ bạn muốn sửa: ");
-        int index = getIndexByWord(sc.nextLine());
-        System.out.print("Sửa từ tiêng Anh: ");
-        dictionary.Dict.get(index).setWord_target(sc.nextLine());
-        System.out.print("Sửa nghĩa: ");
-        dictionary.Dict.get(index).setWord_explain(sc.nextLine());
+    public void editWord(String target, String explain) {
+        int index = getIndexByWord(target);
+        dictionary.Dict.get(index).setWord_target(target);
+        dictionary.Dict.get(index).setWord_explain(explain);
         this.dictionaryExportToFile();
     }
 
-    public void removeWord() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("\nXóa\nNhập từ bạn muốn xóa: ");
-        int index = getIndexByWord(sc.nextLine());
+    public void removeWord(String target) {
+        int index = getIndexByWord(target);
         dictionary.Dict.remove(index);
         this.dictionaryExportToFile();
     }
 
     public ArrayList<String> dictionarySearcher(String target) {
         ArrayList<String> result = new ArrayList<>();
-//        Scanner sc = new Scanner(System.in);
-//        System.out.print("\nSearch\nNhập từ bạn muốn search: ");
-//        String target = sc.nextLine();
         for (int i = 0; i < dictionary.Dict.size(); i++) {
             String temp = dictionary.Dict.get(i).getWord_target();
             if (temp.indexOf(target) == 0) {
