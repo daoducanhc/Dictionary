@@ -52,6 +52,7 @@ public class MainController {
         Listview.setOnMouseClicked(mouseEvent -> {
             ObservableList<String> list1 = Listview.getSelectionModel().getSelectedItems();
             for (String m : list1) {
+                Target.setText(m);
                 Explain.setText(a.dictionaryManagement.dictionaryLookup(m));
             }
         });
@@ -76,7 +77,6 @@ public class MainController {
 
     @FXML
     public void add(ActionEvent event) throws IOException {
-        //todo
         Parent add_gui = FXMLLoader.load(getClass().getResource("addWordGUI.fxml"));
         Stage stage = new Stage();
         stage.setTitle("Add_GUI");
@@ -86,8 +86,13 @@ public class MainController {
     }
 
     @FXML
-    public void delete(ActionEvent event) {
-        //todo
+    public void delete(ActionEvent event) throws IOException {
+        Parent remove_gui = FXMLLoader.load(getClass().getResource("removeWordGUI.fxml"));
+        Stage stage = new Stage();
+        stage.setTitle("Delete_GUI");
+        Scene scene = new Scene(remove_gui, 600, 400);
+        stage.setScene(scene);
+        stage.show();
     }
 }
 
