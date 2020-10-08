@@ -4,3 +4,5 @@ bottle	chai
 glasses	kính
 gas stove	bếp gas
 hell	dia nguc
+asd	sad
+dcm	dcm

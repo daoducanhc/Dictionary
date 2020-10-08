@@ -71,13 +71,8 @@ public class DictionaryManagement {
         return -1;
     }
 
-    public void addWord() {
-        Word word = new Word();
-        Scanner sc = new Scanner(System.in);
-        System.out.print("\nThêm từ mới\nNhập từ tiếng Anh: ");
-        word.setWord_target(sc.nextLine());
-        System.out.print("Nhập nghĩa của từ: ");
-        word.setWord_explain(sc.nextLine());
+    public void addWord(String target, String explain) {
+        Word word = new Word(target, explain);
         dictionary.Dict.add(word);
         this.dictionaryExportToFile();
     }

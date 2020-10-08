@@ -1,7 +1,7 @@
 package sample;
 
-import com.gtranslate.Audio;
-import com.gtranslate.Language;
+//import com.gtranslate.Audio;
+//import com.gtranslate.Language;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,18 +12,13 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
 import javafx.stage.Stage;
-import javazoom.jl.decoder.JavaLayerException;
+//import javazoom.jl.decoder.JavaLayerException;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-public class Controller {
+public class MainController {
 
     @FXML
     private TextField Target;
@@ -31,10 +26,7 @@ public class Controller {
     private TextField Explain;
     @FXML
     private ListView<String> Listview;
-    @FXML
-    private WebView webview;
-    @FXML
-    private WebEngine webEngine;
+
 
     public void textAction(ActionEvent Event) throws IOException {
         if(Listview.getItems().size() != 0) {
@@ -66,26 +58,26 @@ public class Controller {
     }
 
 
-    public void speak(ActionEvent Event) throws IOException, JavaLayerException {
-
-        Audio audio = Audio.getInstance();
-        InputStream sound = null;
-        try {
-            sound = audio.getAudio(Target.getText(), Language.ENGLISH);
-        } catch (IOException ex) {
-            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            audio.play(sound);
-        } catch (JavaLayerException ex) {
-            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+//    public void speak(ActionEvent Event) throws IOException, JavaLayerException {
+//
+//        Audio audio = Audio.getInstance();
+//        InputStream sound = null;
+//        try {
+//            sound = audio.getAudio(Target.getText(), Language.ENGLISH);
+//        } catch (IOException ex) {
+//            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        try {
+//            audio.play(sound);
+//        } catch (JavaLayerException ex) {
+//            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
 
     @FXML
     public void add(ActionEvent event) throws IOException {
         //todo
-        Parent add_gui = FXMLLoader.load(getClass().getResource("test.fxml"));
+        Parent add_gui = FXMLLoader.load(getClass().getResource("addWordGUI.fxml"));
         Stage stage = new Stage();
         stage.setTitle("Add_GUI");
         Scene scene = new Scene(add_gui, 600, 400);
