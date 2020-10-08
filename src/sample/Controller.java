@@ -5,10 +5,16 @@ import com.gtranslate.Language;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
+import javafx.stage.Stage;
 import javazoom.jl.decoder.JavaLayerException;
 
 import java.io.IOException;
@@ -25,7 +31,10 @@ public class Controller {
     private TextField Explain;
     @FXML
     private ListView<String> Listview;
-
+    @FXML
+    private WebView webview;
+    @FXML
+    private WebEngine webEngine;
 
     public void textAction(ActionEvent Event) throws IOException {
         if(Listview.getItems().size() != 0) {
@@ -74,8 +83,14 @@ public class Controller {
     }
 
     @FXML
-    public void add(ActionEvent event) {
+    public void add(ActionEvent event) throws IOException {
         //todo
+        Parent add_gui = FXMLLoader.load(getClass().getResource("test.fxml"));
+        Stage stage = new Stage();
+        stage.setTitle("Add_GUI");
+        Scene scene = new Scene(add_gui, 600, 400);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
