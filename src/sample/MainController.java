@@ -76,7 +76,6 @@ public class MainController {
 //        }
 //    }
 
-    @FXML
     public void add(ActionEvent event) throws IOException {
         Parent add_gui = FXMLLoader.load(getClass().getResource("addWordGUI.fxml"));
         Scene scene = new Scene(add_gui, 600, 400);
@@ -85,7 +84,6 @@ public class MainController {
         window.show();
     }
 
-    @FXML
     public void delete(ActionEvent event) throws IOException {
         Parent add_gui = FXMLLoader.load(getClass().getResource("removeWordGUI.fxml"));
         Scene scene = new Scene(add_gui, 600, 400);
@@ -93,6 +91,15 @@ public class MainController {
         window.setScene(scene);
         window.show();
     }
+
+    public void edit(ActionEvent event) throws IOException {
+        Parent add_gui = FXMLLoader.load(getClass().getResource("editWordGUI.fxml"));
+        Scene scene = new Scene(add_gui, 600, 400);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(scene);
+        window.show();
+    }
+
 }
 
 

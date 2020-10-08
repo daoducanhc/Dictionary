@@ -17,24 +17,28 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class removeWordController {
+public class editWordController {
     @FXML
-    private TextField removeTarget;
+    private TextField editTarget;
     @FXML
-    private Button removeButton;
+    private TextField editExplain;
+    @FXML
+    private Button editButton;
+    @FXML
+    private Button backButton;
     @FXML
     private ListView<String> Listview;
 
-    public void removeAction(ActionEvent event) throws IOException {
+    public void editAction(ActionEvent event) throws IOException {
         if(Listview.getItems().size() != 0) {
             Listview.getItems().clear();
         }
-        String target = removeTarget.getText().trim();
+        String target = editTarget.getText().trim();
 
         DictionaryCommandline a = new DictionaryCommandline();
         a.dictionaryManagement.insertFromFile();
 
-        removeTarget.setOnKeyPressed(keyEvent -> {
+        editTarget.setOnKeyPressed(keyEvent -> {
             if (keyEvent.getCode().equals(KeyCode.ENTER)) {
                 ArrayList<String> searcher = a.dictionaryManagement.dictionarySearcher(target);
                 for (String temp : searcher){
@@ -47,15 +51,15 @@ public class removeWordController {
         Listview.setOnMouseClicked(mouseEvent -> {
             ObservableList<String> list1 = Listview.getSelectionModel().getSelectedItems();
             for (String m : list1) {
-                removeTarget.setText(m);
+                editTarget.setText(m);
             }
         });
-    }
 
-    public void remove(ActionEvent event) throws IOException{
+    }
+    public void edit(ActionEvent event) throws IOException{
         DictionaryCommandline a = new DictionaryCommandline();
         a.dictionaryManagement.insertFromFile();
-        a.dictionaryManagement.removeWord(removeTarget.getText().trim());
+        a.dictionaryManagement.editWord(editTarget.getText().trim(), editExplain.getText().trim());
         // back to mainGUI
         Parent gui = FXMLLoader.load(getClass().getResource("MainGUI.fxml"));
         Scene scene = new Scene(gui, 600, 400);

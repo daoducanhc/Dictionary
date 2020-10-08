@@ -8,9 +8,10 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.removeWordController">
    <children>
-      <Button fx:id="removeButton" layoutX="460.0" layoutY="140.0" mnemonicParsing="false" onAction="#remove" text="Remove" />
+      <Button fx:id="removeButton" layoutX="433.0" layoutY="175.0" mnemonicParsing="false" onAction="#remove" text="Remove" />
       <Label layoutX="114.0" layoutY="72.0" text="Target" />
       <TextField fx:id="removeTarget" layoutX="68.0" layoutY="115.0" onAction="#removeAction" />
       <ListView fx:id="Listview" layoutX="68.0" layoutY="140.0" prefHeight="200.0" prefWidth="200.0" />
+      <Button fx:id="backButton" layoutX="442.0" layoutY="261.0" mnemonicParsing="false" onAction="#back" text="Back" />
    </children>
 </AnchorPane>

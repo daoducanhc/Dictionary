@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainController">
     <children>
-        <Pane layoutY="-2.0" prefHeight="553.0" prefWidth="307.0">
+        <Pane layoutX="6.0" prefHeight="553.0" prefWidth="307.0">
             <children>
                 <TextField fx:id="Target" layoutX="6.0" layoutY="8.0" onAction="#textAction" prefHeight="38.0" prefWidth="216.0" />
                 <Button fx:id="button" layoutX="222.0" layoutY="8.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="80.0" text="Search" />
             <ListView fx:id="Listview" layoutX="6.0" layoutY="46.0" prefHeight="497.0" prefWidth="216.0" />
             <Button fx:id="button2" layoutX="222.0" layoutY="46.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="80.0" text="Speak" />
-            <Button fx:id="add" layoutX="222.0" layoutY="91.0" mnemonicParsing="false" onAction="#add" text="+" />
-            <Button fx:id="delete" layoutX="222.0" layoutY="123.0" mnemonicParsing="false" onAction="#delete" text="-" />
+            <Button fx:id="add" layoutX="250.0" layoutY="92.0" mnemonicParsing="false" onAction="#add" text="+" />
+            <Button fx:id="delete" layoutX="252.0" layoutY="124.0" mnemonicParsing="false" onAction="#delete" text="-" />
+            <Button fx:id="edit" layoutX="244.0" layoutY="165.0" mnemonicParsing="false" onAction="#edit" text="Edit" />
             </children>
         </Pane>
         <Pane fx:id="Speak" layoutX="303.0" prefHeight="553.0" prefWidth="484.0">

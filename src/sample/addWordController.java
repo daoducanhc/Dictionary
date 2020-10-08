@@ -33,8 +33,16 @@ public class addWordController {
         a.dictionaryManagement.addWord(target, explain);
 
         //back to main_gui
-        Parent add_gui = FXMLLoader.load(getClass().getResource("MainGUI.fxml"));
-        Scene scene = new Scene(add_gui, 600, 400);
+        Parent gui = FXMLLoader.load(getClass().getResource("MainGUI.fxml"));
+        Scene scene = new Scene(gui, 600, 400);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(scene);
+        window.show();
+    }
+
+    public void back(ActionEvent event) throws IOException{
+        Parent gui = FXMLLoader.load(getClass().getResource("MainGUI.fxml"));
+        Scene scene = new Scene(gui, 600, 400);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(scene);
         window.show();

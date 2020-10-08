@@ -7,10 +7,11 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.addWordController">
    <children>
-      <Button fx:id="addButton" layoutX="261.0" layoutY="161.0" mnemonicParsing="false" onAction="#add" text="Add" />
+      <Button fx:id="addButton" layoutX="216.0" layoutY="243.0" mnemonicParsing="false" onAction="#add" text="Add" />
       <TextField fx:id="addTarget" layoutX="67.0" layoutY="79.0" />
       <TextField fx:id="addExplain" layoutX="372.0" layoutY="79.0" />
       <Label layoutX="125.0" layoutY="49.0" text="Target" />
       <Label layoutX="428.0" layoutY="49.0" text="Explain" />
+      <Button fx:id="backButton" layoutX="331.0" layoutY="243.0" mnemonicParsing="false" onAction="#back" text="Back" />
    </children>
 </AnchorPane>
