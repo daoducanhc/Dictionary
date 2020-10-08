@@ -15,10 +15,6 @@ public class DictionaryManagement {
 
     public Dictionary dictionary = new Dictionary();
 
-    public Word getWordByIndex(int index) {
-        return dictionary.Dict.get(index);
-    }
-
     public void insertFromCommandLine() {
         int num_word;
         System.out.print("Bạn muốn nhập bao nhiêu từ mới: ");
@@ -60,6 +56,10 @@ public class DictionaryManagement {
         if (index != -1)
             return getWordByIndex(index).getWord_explain();
         return "    ";
+    }
+
+    public Word getWordByIndex(int index) {
+        return dictionary.Dict.get(index);
     }
 
     public int getIndexByWord(String word) {

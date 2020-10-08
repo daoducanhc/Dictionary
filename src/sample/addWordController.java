@@ -29,15 +29,19 @@ public class addWordController {
         DictionaryCommandline a = new DictionaryCommandline();
         a.dictionaryManagement.insertFromFile();
         String target = addTarget.getText().trim();
-        String explain = addExplain.getText().trim();
-        a.dictionaryManagement.addWord(target, explain);
 
-        //back to main_gui
-        Parent gui = FXMLLoader.load(getClass().getResource("MainGUI.fxml"));
-        Scene scene = new Scene(gui, 600, 400);
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(scene);
-        window.show();
+        if(!target.equals("")){
+            String explain = addExplain.getText().trim();
+            a.dictionaryManagement.addWord(target, explain);
+
+            //back to main_gui
+            Parent gui = FXMLLoader.load(getClass().getResource("MainGUI.fxml"));
+            Scene scene = new Scene(gui, 600, 400);
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            window.setScene(scene);
+            window.show();
+        }
+
     }
 
     public void back(ActionEvent event) throws IOException{

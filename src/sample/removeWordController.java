@@ -55,13 +55,23 @@ public class removeWordController {
     public void remove(ActionEvent event) throws IOException{
         DictionaryCommandline a = new DictionaryCommandline();
         a.dictionaryManagement.insertFromFile();
-        a.dictionaryManagement.removeWord(removeTarget.getText().trim());
-        // back to mainGUI
-        Parent gui = FXMLLoader.load(getClass().getResource("MainGUI.fxml"));
-        Scene scene = new Scene(gui, 600, 400);
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(scene);
-        window.show();
+        String target = removeTarget.getText().trim();
+        int index = a.dictionaryManagement.getIndexByWord(target);
+
+        if(index != -1){
+            if(!target.equals("")) {
+                a.dictionaryManagement.removeWord(target);
+                // back to mainGUI
+                Parent gui = FXMLLoader.load(getClass().getResource("MainGUI.fxml"));
+                Scene scene = new Scene(gui, 600, 400);
+                Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                window.setScene(scene);
+                window.show();
+            }
+        }
+        else {
+            //Alert
+        }
     }
 
     public void back(ActionEvent event) throws IOException{

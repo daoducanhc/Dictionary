@@ -59,13 +59,26 @@ public class editWordController {
     public void edit(ActionEvent event) throws IOException{
         DictionaryCommandline a = new DictionaryCommandline();
         a.dictionaryManagement.insertFromFile();
-        a.dictionaryManagement.editWord(editTarget.getText().trim(), editExplain.getText().trim());
-        // back to mainGUI
-        Parent gui = FXMLLoader.load(getClass().getResource("MainGUI.fxml"));
-        Scene scene = new Scene(gui, 600, 400);
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(scene);
-        window.show();
+        String target = editTarget.getText().trim();
+        String explain = editExplain.getText().trim();
+        int index = a.dictionaryManagement.getIndexByWord(target);
+
+        if(index != -1){
+            if(!target.equals("")) {
+                a.dictionaryManagement.editWord(target, explain);
+                // back to mainGUI
+                Parent gui = FXMLLoader.load(getClass().getResource("MainGUI.fxml"));
+                Scene scene = new Scene(gui, 600, 400);
+                Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                window.setScene(scene);
+                window.show();
+            }
+        }
+        else {
+            //Alert
+        }
+
+
     }
 
     public void back(ActionEvent event) throws IOException{
