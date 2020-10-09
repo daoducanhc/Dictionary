@@ -7,10 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 
@@ -63,21 +60,22 @@ public class editWordController {
         String explain = editExplain.getText().trim();
         int index = a.dictionaryManagement.getIndexByWord(target);
 
-        if(index != -1){
-            if(!target.equals("")) {
+        if(!target.equals("")) {
+            if (index != -1) {
                 a.dictionaryManagement.editWord(target, explain);
                 // back to mainGUI
                 Parent gui = FXMLLoader.load(getClass().getResource("MainGUI.fxml"));
                 Scene scene = new Scene(gui, 600, 400);
-                Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 window.setScene(scene);
                 window.show();
+            } else {
+                //Alert
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Don't have that word in dictionary yet!!!");
+                alert.show();
             }
         }
-        else {
-            //Alert
-        }
-
 
     }
 
