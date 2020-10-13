@@ -3,7 +3,7 @@ package sample;
 import java.util.ArrayList;
 
 public class Dictionary {
-    protected ArrayList<Word> Dict = new ArrayList<>();
+    protected ArrayList<Word> Dict = new ArrayList<Word>();
 
 //    public ArrayList<sample.Word> getDict() {
 //        return Dict;

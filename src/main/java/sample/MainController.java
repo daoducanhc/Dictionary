@@ -2,7 +2,6 @@ package sample;
 
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,11 +15,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 
-import java.awt.image.AreaAveragingScaleFilter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
@@ -95,7 +92,7 @@ public class MainController implements Initializable {
 
 
     public void add(ActionEvent event) throws IOException {
-        Parent add_gui = FXMLLoader.load(getClass().getResource("addWordGUI.fxml"));
+        Parent add_gui = FXMLLoader.load(getClass().getResource("/fxml/addWordGUI.fxml"));
         Scene scene = new Scene(add_gui, 600, 400);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(scene);
@@ -103,7 +100,7 @@ public class MainController implements Initializable {
     }
 
     public void delete(ActionEvent event) throws IOException {
-        Parent add_gui = FXMLLoader.load(getClass().getResource("removeWordGUI.fxml"));
+        Parent add_gui = FXMLLoader.load(getClass().getResource("/fxml/removeWordGUI.fxml"));
         Scene scene = new Scene(add_gui, 600, 400);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(scene);
@@ -111,7 +108,7 @@ public class MainController implements Initializable {
     }
 
     public void edit(ActionEvent event) throws IOException {
-        Parent add_gui = FXMLLoader.load(getClass().getResource("editWordGUI.fxml"));
+        Parent add_gui = FXMLLoader.load(getClass().getResource("/fxml/editWordGUI.fxml"));
         Scene scene = new Scene(add_gui, 600, 400);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(scene);

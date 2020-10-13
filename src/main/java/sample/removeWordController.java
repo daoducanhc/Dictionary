@@ -14,28 +14,24 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class editWordController {
+public class removeWordController {
     @FXML
-    private TextField editTarget;
+    private TextField removeTarget;
     @FXML
-    private TextField editExplain;
-    @FXML
-    private Button editButton;
-    @FXML
-    private Button backButton;
+    private Button removeButton;
     @FXML
     private ListView<String> Listview;
 
-    public void editAction(ActionEvent event) throws IOException {
+    public void removeAction(ActionEvent event) throws IOException {
         if(Listview.getItems().size() != 0) {
             Listview.getItems().clear();
         }
-        String target = editTarget.getText().trim();
+        String target = removeTarget.getText().trim();
 
         DictionaryCommandline a = new DictionaryCommandline();
         a.dictionaryManagement.insertFromFile();
 
-        editTarget.setOnKeyPressed(keyEvent -> {
+        removeTarget.setOnKeyPressed(keyEvent -> {
             if (keyEvent.getCode().equals(KeyCode.ENTER)) {
                 ArrayList<String> searcher = a.dictionaryManagement.dictionarySearcher(target);
                 for (String temp : searcher){
@@ -48,23 +44,22 @@ public class editWordController {
         Listview.setOnMouseClicked(mouseEvent -> {
             ObservableList<String> list1 = Listview.getSelectionModel().getSelectedItems();
             for (String m : list1) {
-                editTarget.setText(m);
+                removeTarget.setText(m);
             }
         });
-
     }
-    public void edit(ActionEvent event) throws IOException{
+
+    public void remove(ActionEvent event) throws IOException{
         DictionaryCommandline a = new DictionaryCommandline();
         a.dictionaryManagement.insertFromFile();
-        String target = editTarget.getText().trim();
-        String explain = editExplain.getText().trim();
+        String target = removeTarget.getText().trim();
         int index = a.dictionaryManagement.getIndexByWord(target);
 
-        if(!target.equals("")) {
-            if (index != -1) {
-                a.dictionaryManagement.editWord(target, explain);
+        if (!target.equals("")) {
+            if(index != -1){
+                a.dictionaryManagement.removeWord(target);
                 // back to mainGUI
-                Parent gui = FXMLLoader.load(getClass().getResource("MainGUI.fxml"));
+                Parent gui = FXMLLoader.load(getClass().getResource("/fxml/MainGUI.fxml"));
                 Scene scene = new Scene(gui, 600, 400);
                 Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 window.setScene(scene);
@@ -76,11 +71,10 @@ public class editWordController {
                 alert.show();
             }
         }
-
     }
 
     public void back(ActionEvent event) throws IOException{
-        Parent gui = FXMLLoader.load(getClass().getResource("MainGUI.fxml"));
+        Parent gui = FXMLLoader.load(getClass().getResource("/fxml/MainGUI.fxml"));
         Scene scene = new Scene(gui, 600, 400);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(scene);

@@ -117,3 +117,4 @@ ancestor	to tien
 array	day, hang
 application	ung dung
 cow	bo
+b	b

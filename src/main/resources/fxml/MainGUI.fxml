@@ -19,7 +19,7 @@
                <graphic>
                   <ImageView fitHeight="31.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Image/pngtree-speaker-icon-isolated-png-image_1727903.jpg" />
+                        <Image url="@../Image/pngtree-speaker-icon-isolated-png-image_1727903.jpg" />
                      </image>
                   </ImageView>
                </graphic></Button>
@@ -27,7 +27,7 @@
                <graphic>
                   <ImageView fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Image/add.png" />
+                        <Image url="@../Image/add.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
@@ -35,7 +35,7 @@
                <graphic>
                   <ImageView fitHeight="28.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Image/icon-delete-16.jpg" />
+                        <Image url="@../Image/icon-delete-16.jpg" />
                      </image>
                   </ImageView>
                </graphic></Button>
@@ -43,7 +43,7 @@
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Image/edit.png" />
+                        <Image url="@../Image/edit.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
