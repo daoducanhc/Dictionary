@@ -1,19 +1,14 @@
 package sample;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class DictionaryManagement {
 
-    public Dictionary dictionary = new Dictionary();
+    public static Dictionary dictionary = new Dictionary();
 
     public void insertFromCommandLine() {
         int num_word;
@@ -26,12 +21,11 @@ public class DictionaryManagement {
             String word_target = sc.nextLine();
             System.out.print("Nhập nghĩa của từ: ");
             String word_explain = sc.nextLine();
-            Word word = new Word(word_target, word_explain);
-            dictionary.add(word);
+            dictionary.Dict.add(new Word(word_target, word_explain));
+            dictionary.storeTargetTrie.add(word_target, dictionary.Dict.size() - 1);
         }
     }
 
-    //File file = new File(FILE_URL);
     public void insertFromFile() throws IOException {
         String FILE_URL = "data/dictionaries.txt";
         File file = new File(FILE_URL);
@@ -41,65 +35,53 @@ public class DictionaryManagement {
             String temp = sc.nextLine();
             String[] words = temp.split("\\t");
             if (words.length == 2) {
-                dictionary.add(new Word(words[0], words[1]));
+                dictionary.Dict.add(new Word(words[0], words[1]));
+                dictionary.storeTargetTrie.add(words[0], dictionary.Dict.size() - 1);
             }
-
         }
     }
 
-    public String dictionaryLookup(String target) {
-//        System.out.print("Nhập từ muốn tìm: ");
-//        Scanner sc = new Scanner(System.in);
-//        String word = sc.nextLine();
-//        System.out.print(word);
-        int index = getIndexByWord(target);
-        if (index != -1)
-            return getWordByIndex(index).getWord_explain();
-        return "";
+    /**
+     * Optimize searching function by Trie.
+     */
+    public int getIndexByTarget(String target) {
+        return dictionary.storeTargetTrie.search(target);
     }
 
     public Word getWordByIndex(int index) {
         return dictionary.Dict.get(index);
     }
 
-    public int getIndexByWord(String word) {
-        for (int i = 0; i < dictionary.Dict.size(); i++) {
-            if (word.equals(dictionary.Dict.get(i).getWord_target())) {
-                return i;
-            }
-        }
-        return -1;
+    public String dictionaryLookup(String target) {
+        int index = getIndexByTarget(target);
+        if (index != -1)
+            return getWordByIndex(index).getWord_explain();
+        return "";
     }
 
     public void addWord(String target, String explain) {
         Word word = new Word(target, explain);
         dictionary.Dict.add(word);
-        this.dictionaryExportToFile();
+        dictionary.storeTargetTrie.add(target, dictionary.Dict.size() - 1);
+//        this.dictionaryExportToFile();
     }
 
-    public void editWord(String target, String explain) {
-        int index = getIndexByWord(target);
+    public void editWord(String target, String explain, int index) {
+//        int index = getIndexByTarget(target);
         dictionary.Dict.get(index).setWord_target(target);
         dictionary.Dict.get(index).setWord_explain(explain);
-        this.dictionaryExportToFile();
+//        this.dictionaryExportToFile();
     }
 
-    public void removeWord(String target) {
-        int index = getIndexByWord(target);
+    public void removeWord(String target, int index) {
+//        int index = getIndexByTarget(target);
         dictionary.Dict.remove(index);
-        this.dictionaryExportToFile();
+        dictionary.storeTargetTrie.remove(target);
+//        this.dictionaryExportToFile();
     }
 
     public ArrayList<String> dictionarySearcher(String target) {
-        ArrayList<String> result = new ArrayList<>();
-        for (int i = 0; i < dictionary.Dict.size(); i++) {
-            String temp = dictionary.Dict.get(i).getWord_target();
-            if (temp.indexOf(target) == 0) {
-                result.add(temp);
-            }
-        }
-        Collections.sort(result);
-        return result;
+        return dictionary.storeTargetTrie.suggest(target);
     }
 
     public void dictionaryExportToFile() {

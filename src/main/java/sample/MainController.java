@@ -12,7 +12,6 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -95,7 +94,7 @@ public class MainController implements Initializable {
         window.show();
     }
 
-    public void exit(){
+    public void exit() {
         Stage stage = (Stage) exitButton.getScene().getWindow();
         DictionaryCommandline.dictionaryManagement.dictionaryExportToFile();
         stage.close();

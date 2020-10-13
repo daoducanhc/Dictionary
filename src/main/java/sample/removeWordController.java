@@ -23,7 +23,7 @@ public class removeWordController {
     private ListView<String> Listview;
 
     public void removeAction(ActionEvent event) throws IOException {
-        if(Listview.getItems().size() != 0) {
+        if (Listview.getItems().size() != 0) {
             Listview.getItems().clear();
         }
         String target = removeTarget.getText().trim();
@@ -31,7 +31,7 @@ public class removeWordController {
         removeTarget.setOnKeyPressed(keyEvent -> {
             if (keyEvent.getCode().equals(KeyCode.ENTER)) {
                 ArrayList<String> searcher = DictionaryCommandline.dictionaryManagement.dictionarySearcher(target);
-                for (String temp : searcher){
+                for (String temp : searcher) {
                     Listview.getItems().add(temp);
                 }
             }
@@ -46,13 +46,13 @@ public class removeWordController {
         });
     }
 
-    public void remove(ActionEvent event) throws IOException{
+    public void remove(ActionEvent event) throws IOException {
         String target = removeTarget.getText().trim();
-        int index = DictionaryCommandline.dictionaryManagement.getIndexByWord(target);
+        int index = DictionaryCommandline.dictionaryManagement.getIndexByTarget(target);
 
         if (!target.equals("")) {
-            if(index != -1){
-                DictionaryCommandline.dictionaryManagement.removeWord(target);
+            if (index != -1) {
+                DictionaryCommandline.dictionaryManagement.removeWord(target, index);
                 // back to mainGUI
                 Parent gui = FXMLLoader.load(getClass().getResource("/fxml/MainGUI.fxml"));
                 Scene scene = new Scene(gui, 600, 400);
@@ -68,10 +68,10 @@ public class removeWordController {
         }
     }
 
-    public void back(ActionEvent event) throws IOException{
+    public void back(ActionEvent event) throws IOException {
         Parent gui = FXMLLoader.load(getClass().getResource("/fxml/MainGUI.fxml"));
         Scene scene = new Scene(gui, 600, 400);
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene);
         window.show();
     }

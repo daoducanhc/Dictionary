@@ -10,10 +10,10 @@ public class DictionaryCommandline {
     }
 
     public void showAllWord() {
-        System.out.println(dictionaryManagement.dictionary.Dict.size());
+        System.out.println(DictionaryManagement.dictionary.Dict.size());
         System.out.println("|English           |Vietnamese");
 
-        for (int i = 0; i < dictionaryManagement.dictionary.Dict.size(); i++) {
+        for (int i = 0; i < DictionaryManagement.dictionary.Dict.size(); i++) {
             String target = dictionaryManagement.getWordByIndex(i).getWord_target();
             String explain = dictionaryManagement.getWordByIndex(i).getWord_explain();
             System.out.format("|%s\t|%s\n", target, explain);
