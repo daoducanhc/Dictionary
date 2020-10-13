@@ -55,7 +55,7 @@ public class DictionaryManagement {
         int index = getIndexByWord(target);
         if (index != -1)
             return getWordByIndex(index).getWord_explain();
-        return "    ";
+        return "";
     }
 
     public Word getWordByIndex(int index) {
@@ -114,4 +114,5 @@ public class DictionaryManagement {
             e.printStackTrace();
         }
     }
+
 }

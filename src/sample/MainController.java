@@ -11,12 +11,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
+
+import java.awt.image.AreaAveragingScaleFilter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
@@ -24,10 +28,11 @@ public class MainController implements Initializable {
     @FXML
     private TextField Target;
     @FXML
-    private TextField Explain;
+    private TextArea Explain;
     @FXML
     private ListView<String> Listview;
 
+    @FXML
     public void textAction(ActionEvent Event) throws IOException {
         if(Listview.getItems().size() != 0) {
             Listview.getItems().clear();
@@ -39,21 +44,42 @@ public class MainController implements Initializable {
 
         Target.setOnKeyPressed(keyEvent -> {
             if (keyEvent.getCode().equals(KeyCode.ENTER)) {
-                Explain.setText(a.dictionaryManagement.dictionaryLookup(target));
-                ArrayList<String> searcher_all = a.dictionaryManagement.dictionarySearcher(""); // search tat ca cac tu
-                ArrayList<String> searcher = a.dictionaryManagement.dictionarySearcher(target);
-                for (String temp : searcher_all){
-                    //Listview.getItems().add(temp);
-                    if (target.length() == 1) {
-                        for (String m:searcher) {
-                            Listview.getItems().add(m);
-                        }
-                        break;
-                    } else
-                        if(lcs(target, temp).length() >= target.length()-1) {
+                String explain = a.dictionaryManagement.dictionaryLookup(target);
+
+                // TH tim ra target
+                if(!explain.equals("")){
+                    Explain.setText(explain);
+                    ArrayList<String> searcher= a.dictionaryManagement.dictionarySearcher(target);
+                    for (String temp : searcher){
+                        Listview.getItems().add(temp);
+                    }
+                }
+                // TH khong tim ra target
+                else {
+                    ArrayList<String> all = a.dictionaryManagement.dictionarySearcher("");
+                    for (String temp : all) {
+                        if (lcs(target, temp).length() >= target.length() - 1) {
                             Listview.getItems().add(temp);
                         }
+                    }
                 }
+
+//                ArrayList<String> searcher_all = a.dictionaryManagement.dictionarySearcher(""); // search tat ca cac tu
+//                Collections.sort(searcher_all);
+//                ArrayList<String> searcher = a.dictionaryManagement.dictionarySearcher(target);
+//
+//                if (target.length() == 1 || target.length() == 2) {
+//                    for (String m : searcher) {
+//                        Listview.getItems().add(m);
+//                    }
+//                }else{
+//                    for (String temp : searcher_all) {
+//                        //Listview.getItems().add(temp);
+//                        if (lcs(target, temp).length() >= target.length() - 1) {
+//                            Listview.getItems().add(temp);
+//                        }
+//                    }
+//                }
             }
         });
 
@@ -158,5 +184,11 @@ public class MainController implements Initializable {
         return sb.toString();
 
     }
+
+//    @FXML
+//    public void SpeakOnAction(ActionEvent event) {
+//        Speech speech = new Speech();
+//        speech.speak(Target.getText());
+//    }
 
 }

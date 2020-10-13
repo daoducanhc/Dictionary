@@ -19,7 +19,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("MainGUI.fxml"));
         primaryStage.setTitle("Dictionary");
 //        primaryStage.setScene(new Scene(root, 600, 400));
-        Scene scene = new Scene(root, 600, 400);
+        Scene scene = new Scene(root, 795, 400);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
