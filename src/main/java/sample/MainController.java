@@ -8,13 +8,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -28,31 +26,29 @@ public class MainController implements Initializable {
     private TextArea Explain;
     @FXML
     private ListView<String> Listview;
+    @FXML
+    private Button exitButton;
 
 
-    public void textAction(ActionEvent Event) throws IOException {
-        if(Listview.getItems().size() != 0) {
+    public void textAction() {
+        if (Listview.getItems().size() != 0) {
             Listview.getItems().clear();
         }
 
-//        DictionaryCommandline a = new DictionaryCommandline();
         String target = Target.getText().trim();
-//        DictionaryCommandline.dictionaryManagement.insertFromFile();
-//        a.dictionaryManagement.insertFromFile();
-
         Target.setOnKeyPressed(keyEvent -> {
             if (keyEvent.getCode().equals(KeyCode.ENTER)) {
                 String explain = DictionaryCommandline.dictionaryManagement.dictionaryLookup(target);
 
-                // TH tim ra target
-                if(!explain.equals("") || ( target.length()==1 || target.length()==2) ){
+                // Could find target or wanna suggested same 1-2 first words
+                if (!explain.equals("") || (target.length() == 1 || target.length() == 2)) {
                     Explain.setText(explain);
-                    ArrayList<String> searcher= DictionaryCommandline.dictionaryManagement.dictionarySearcher(target);
-                    for (String temp : searcher){
+                    ArrayList<String> searcher = DictionaryCommandline.dictionaryManagement.dictionarySearcher(target);
+                    for (String temp : searcher) {
                         Listview.getItems().add(temp);
                     }
                 }
-                // TH khong tim ra target
+                // Couldn't find target
                 else {
                     ArrayList<String> all = DictionaryCommandline.dictionaryManagement.dictionarySearcher("");
                     for (String temp : all) {
@@ -78,7 +74,7 @@ public class MainController implements Initializable {
     public void add(ActionEvent event) throws IOException {
         Parent add_gui = FXMLLoader.load(getClass().getResource("/fxml/addWordGUI.fxml"));
         Scene scene = new Scene(add_gui, 600, 400);
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene);
         window.show();
     }
@@ -86,7 +82,7 @@ public class MainController implements Initializable {
     public void delete(ActionEvent event) throws IOException {
         Parent add_gui = FXMLLoader.load(getClass().getResource("/fxml/removeWordGUI.fxml"));
         Scene scene = new Scene(add_gui, 600, 400);
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene);
         window.show();
     }
@@ -94,9 +90,15 @@ public class MainController implements Initializable {
     public void edit(ActionEvent event) throws IOException {
         Parent add_gui = FXMLLoader.load(getClass().getResource("/fxml/editWordGUI.fxml"));
         Scene scene = new Scene(add_gui, 600, 400);
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene);
         window.show();
+    }
+
+    public void exit(){
+        Stage stage = (Stage) exitButton.getScene().getWindow();
+        DictionaryCommandline.dictionaryManagement.dictionaryExportToFile();
+        stage.close();
     }
 
     @Override
@@ -150,7 +152,7 @@ public class MainController implements Initializable {
         }
 
         int i = 0, j = 0;
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         while (i < l1 && j < l2) {
             if (str1.charAt(i) == str2.charAt(j)) {
                 sb.append(str1.charAt(i));
