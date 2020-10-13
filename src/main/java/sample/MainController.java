@@ -44,7 +44,7 @@ public class MainController implements Initializable {
                 String explain = a.dictionaryManagement.dictionaryLookup(target);
 
                 // TH tim ra target
-                if(!explain.equals("")){
+                if(!explain.equals("") || ( target.length()==1 || target.length()==2) ){
                     Explain.setText(explain);
                     ArrayList<String> searcher= a.dictionaryManagement.dictionarySearcher(target);
                     for (String temp : searcher){
