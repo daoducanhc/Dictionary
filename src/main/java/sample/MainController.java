@@ -29,54 +29,38 @@ public class MainController implements Initializable {
     @FXML
     private ListView<String> Listview;
 
-    @FXML
+
     public void textAction(ActionEvent Event) throws IOException {
         if(Listview.getItems().size() != 0) {
             Listview.getItems().clear();
         }
 
-        DictionaryCommandline a = new DictionaryCommandline();
+//        DictionaryCommandline a = new DictionaryCommandline();
         String target = Target.getText().trim();
-        a.dictionaryManagement.insertFromFile();
+//        DictionaryCommandline.dictionaryManagement.insertFromFile();
+//        a.dictionaryManagement.insertFromFile();
 
         Target.setOnKeyPressed(keyEvent -> {
             if (keyEvent.getCode().equals(KeyCode.ENTER)) {
-                String explain = a.dictionaryManagement.dictionaryLookup(target);
+                String explain = DictionaryCommandline.dictionaryManagement.dictionaryLookup(target);
 
                 // TH tim ra target
                 if(!explain.equals("") || ( target.length()==1 || target.length()==2) ){
                     Explain.setText(explain);
-                    ArrayList<String> searcher= a.dictionaryManagement.dictionarySearcher(target);
+                    ArrayList<String> searcher= DictionaryCommandline.dictionaryManagement.dictionarySearcher(target);
                     for (String temp : searcher){
                         Listview.getItems().add(temp);
                     }
                 }
                 // TH khong tim ra target
                 else {
-                    ArrayList<String> all = a.dictionaryManagement.dictionarySearcher("");
+                    ArrayList<String> all = DictionaryCommandline.dictionaryManagement.dictionarySearcher("");
                     for (String temp : all) {
                         if (lcs(target, temp).length() >= target.length() - 1) {
                             Listview.getItems().add(temp);
                         }
                     }
                 }
-
-//                ArrayList<String> searcher_all = a.dictionaryManagement.dictionarySearcher(""); // search tat ca cac tu
-//                Collections.sort(searcher_all);
-//                ArrayList<String> searcher = a.dictionaryManagement.dictionarySearcher(target);
-//
-//                if (target.length() == 1 || target.length() == 2) {
-//                    for (String m : searcher) {
-//                        Listview.getItems().add(m);
-//                    }
-//                }else{
-//                    for (String temp : searcher_all) {
-//                        //Listview.getItems().add(temp);
-//                        if (lcs(target, temp).length() >= target.length() - 1) {
-//                            Listview.getItems().add(temp);
-//                        }
-//                    }
-//                }
             }
         });
 
@@ -85,7 +69,7 @@ public class MainController implements Initializable {
             ObservableList<String> list1 = Listview.getSelectionModel().getSelectedItems();
             for (String m : list1) {
                 Target.setText(m);
-                Explain.setText(a.dictionaryManagement.dictionaryLookup(m));
+                Explain.setText(DictionaryCommandline.dictionaryManagement.dictionaryLookup(m));
             }
         });
     }
@@ -117,13 +101,13 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        DictionaryCommandline a = new DictionaryCommandline();
-        try {
-            a.dictionaryManagement.insertFromFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        ArrayList<String> listTarget = a.dictionaryManagement.dictionarySearcher("");
+//        DictionaryCommandline a = new DictionaryCommandline();
+//        try {
+//            a.dictionaryManagement.insertFromFile();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+        ArrayList<String> listTarget = DictionaryCommandline.dictionaryManagement.dictionarySearcher("");
         for (String m : listTarget) {
             Listview.getItems().add(m);
         }
@@ -132,7 +116,7 @@ public class MainController implements Initializable {
             ObservableList<String> list1 = Listview.getSelectionModel().getSelectedItems();
             for (String m : list1) {
                 Target.setText(m);
-                Explain.setText(a.dictionaryManagement.dictionaryLookup(m));
+                Explain.setText(DictionaryCommandline.dictionaryManagement.dictionaryLookup(m));
             }
         });
     }

@@ -16,6 +16,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
+        DictionaryCommandline.dictionaryManagement.insertFromFile();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/MainGUI.fxml"));
         primaryStage.setTitle("Dictionary");
 //        primaryStage.setScene(new Scene(root, 600, 400));

@@ -28,12 +28,9 @@ public class removeWordController {
         }
         String target = removeTarget.getText().trim();
 
-        DictionaryCommandline a = new DictionaryCommandline();
-        a.dictionaryManagement.insertFromFile();
-
         removeTarget.setOnKeyPressed(keyEvent -> {
             if (keyEvent.getCode().equals(KeyCode.ENTER)) {
-                ArrayList<String> searcher = a.dictionaryManagement.dictionarySearcher(target);
+                ArrayList<String> searcher = DictionaryCommandline.dictionaryManagement.dictionarySearcher(target);
                 for (String temp : searcher){
                     Listview.getItems().add(temp);
                 }
@@ -50,14 +47,12 @@ public class removeWordController {
     }
 
     public void remove(ActionEvent event) throws IOException{
-        DictionaryCommandline a = new DictionaryCommandline();
-        a.dictionaryManagement.insertFromFile();
         String target = removeTarget.getText().trim();
-        int index = a.dictionaryManagement.getIndexByWord(target);
+        int index = DictionaryCommandline.dictionaryManagement.getIndexByWord(target);
 
         if (!target.equals("")) {
             if(index != -1){
-                a.dictionaryManagement.removeWord(target);
+                DictionaryCommandline.dictionaryManagement.removeWord(target);
                 // back to mainGUI
                 Parent gui = FXMLLoader.load(getClass().getResource("/fxml/MainGUI.fxml"));
                 Scene scene = new Scene(gui, 600, 400);

@@ -21,13 +21,12 @@ public class addWordController {
     private Button addButton;
 
     public void add(ActionEvent event) throws IOException {
-        DictionaryCommandline a = new DictionaryCommandline();
-        a.dictionaryManagement.insertFromFile();
+//        DictionaryCommandline.dictionaryManagement.insertFromFile();
         String target = addTarget.getText().trim();
 
         if(!target.equals("")){
             String explain = addExplain.getText().trim();
-            a.dictionaryManagement.addWord(target, explain);
+            DictionaryCommandline.dictionaryManagement.addWord(target, explain);
 
             //back to main_gui
             Parent gui = FXMLLoader.load(getClass().getResource("/fxml/MainGUI.fxml"));

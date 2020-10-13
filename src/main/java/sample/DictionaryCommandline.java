@@ -3,7 +3,7 @@ package sample;//import com.sun.prism.shader.Solid_TextureYV12_AlphaTest_Loader;
 import java.io.IOException;
 
 public class DictionaryCommandline {
-    public DictionaryManagement dictionaryManagement = new DictionaryManagement();
+    public static DictionaryManagement dictionaryManagement = new DictionaryManagement();
 
     public static void main(String[] args) throws IOException {
 
