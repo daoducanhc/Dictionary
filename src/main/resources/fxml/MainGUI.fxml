@@ -8,9 +8,9 @@
     <children>
         <Pane layoutX="6.0" prefHeight="553.0" prefWidth="348.0">
             <children>
-                <TextField fx:id="Target" layoutX="6.0" layoutY="8.0" onAction="#textAction" prefHeight="38.0" prefWidth="216.0" style="-fx-border-radius: 20;" />
+                <TextField fx:id="Target" layoutX="6.0" layoutY="8.0" onAction="#textAction" prefHeight="38.0" prefWidth="216.0" style="-fx-border-radius: 100px ;" />
                 <ListView fx:id="Listview" layoutX="6.0" layoutY="46.0" prefHeight="502.0" prefWidth="216.0" />
-                <Button fx:id="button2" layoutX="221.0" layoutY="8.0" mnemonicParsing="false" onAction="#SpeakOnAction" prefHeight="38.0" prefWidth="124.0" text="Speak">
+                <Button fx:id="button2" layoutX="221.0" layoutY="8.0" mnemonicParsing="false" onAction="#SpeakOnAction" prefHeight="38.0" prefWidth="124.0" style="-fx-border-radius: 10;" text="Speak">
                     <graphic>
                         <ImageView fitHeight="31.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                             <image>
