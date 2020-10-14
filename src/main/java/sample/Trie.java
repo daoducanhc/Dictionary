@@ -62,6 +62,9 @@ public class Trie {
                 pointer = pointer.getChildren()[index];
             } else return null;
         }
+        if(pointer.getIdArray() != -1){
+            result.add(target);
+        }
 
         for (int i = 0; i < TrieNode.ALPHABET_LETTERS; i++) {
             if (pointer.getChildren()[i] != null) {
@@ -70,9 +73,6 @@ public class Trie {
                     letter = ' ';
                 } else {
                     letter = (char) ((int) ('a') + i);
-                }
-                if (pointer.getChildren()[i].getIdArray() != -1) {
-                    result.add(target + letter);
                 }
                 ArrayList<String> recursive = suggest(target + letter);
                 result.addAll(recursive);
