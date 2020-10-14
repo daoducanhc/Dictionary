@@ -19,8 +19,7 @@ public class Main extends Application {
         DictionaryCommandline.dictionaryManagement.insertFromFile();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/MainGUI.fxml"));
         primaryStage.setTitle("Dictionary");
-//        primaryStage.setScene(new Scene(root, 600, 400));
-        Scene scene = new Scene(root, 795, 400);
+        Scene scene = new Scene(root, 795, 555);
         primaryStage.setScene(scene);
         primaryStage.show();
     }

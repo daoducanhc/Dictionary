@@ -43,9 +43,12 @@ public class MainController implements Initializable {
                 if (!explain.equals("") || (target.length() == 1 || target.length() == 2)) {
                     Explain.setText(explain);
                     ArrayList<String> searcher = DictionaryCommandline.dictionaryManagement.dictionarySearcher(target);
-                    for (String temp : searcher) {
-                        Listview.getItems().add(temp);
+                    if (searcher != null){
+                        for (String temp : searcher) {
+                            Listview.getItems().add(temp);
+                        }
                     }
+
                 }
                 // Couldn't find target
                 else {
@@ -102,12 +105,6 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        DictionaryCommandline a = new DictionaryCommandline();
-//        try {
-//            a.dictionaryManagement.insertFromFile();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
         ArrayList<String> listTarget = DictionaryCommandline.dictionaryManagement.dictionarySearcher("");
         for (String m : listTarget) {
             Listview.getItems().add(m);
@@ -121,19 +118,6 @@ public class MainController implements Initializable {
             }
         });
     }
-
-//    private class MyTasks extends Task {
-//
-//        @Override
-//        protected Object call() throws Exception {
-//            isCanQuery = false;
-//            System.out.println(isCanQuery);
-//            Thread.sleep(2000);
-//            isCanQuery = true;
-//            System.out.println(isCanQuery);
-//            return null;
-//        }
-//    }
 
     public String lcs(String str1, String str2) {
         int l1 = str1.length();
@@ -166,11 +150,5 @@ public class MainController implements Initializable {
         return sb.toString();
 
     }
-
-//    @FXML
-//    public void SpeakOnAction(ActionEvent event) {
-//        Speech speech = new Speech();
-//        speech.speak(Target.getText());
-//    }
 
 }

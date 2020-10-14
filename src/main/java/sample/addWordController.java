@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -17,11 +16,8 @@ public class addWordController {
     private TextField addTarget;
     @FXML
     private TextField addExplain;
-    @FXML
-    private Button addButton;
 
     public void add(ActionEvent event) throws IOException {
-//        DictionaryCommandline.dictionaryManagement.insertFromFile();
         String target = addTarget.getText().trim();
 
         if (!target.equals("")) {
@@ -30,7 +26,7 @@ public class addWordController {
 
             //back to main_gui
             Parent gui = FXMLLoader.load(getClass().getResource("/fxml/MainGUI.fxml"));
-            Scene scene = new Scene(gui, 600, 400);
+            Scene scene = new Scene(gui, 795, 555);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             window.setScene(scene);
             window.show();
@@ -40,7 +36,7 @@ public class addWordController {
 
     public void back(ActionEvent event) throws IOException {
         Parent gui = FXMLLoader.load(getClass().getResource("/fxml/MainGUI.fxml"));
-        Scene scene = new Scene(gui, 600, 400);
+        Scene scene = new Scene(gui, 795, 555);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene);
         window.show();

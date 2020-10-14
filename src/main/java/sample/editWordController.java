@@ -20,13 +20,9 @@ public class editWordController {
     @FXML
     private TextField editExplain;
     @FXML
-    private Button editButton;
-    @FXML
-    private Button backButton;
-    @FXML
     private ListView<String> Listview;
 
-    public void editAction(ActionEvent event) throws IOException {
+    public void editAction() {
         if (Listview.getItems().size() != 0) {
             Listview.getItems().clear();
         }
@@ -35,8 +31,10 @@ public class editWordController {
         editTarget.setOnKeyPressed(keyEvent -> {
             if (keyEvent.getCode().equals(KeyCode.ENTER)) {
                 ArrayList<String> searcher = DictionaryCommandline.dictionaryManagement.dictionarySearcher(target);
-                for (String temp : searcher) {
-                    Listview.getItems().add(temp);
+                if (searcher != null){
+                    for (String temp : searcher) {
+                        Listview.getItems().add(temp);
+                    }
                 }
             }
         });
@@ -61,7 +59,7 @@ public class editWordController {
                 DictionaryCommandline.dictionaryManagement.editWord(target, explain, index);
                 // back to mainGUI
                 Parent gui = FXMLLoader.load(getClass().getResource("/fxml/MainGUI.fxml"));
-                Scene scene = new Scene(gui, 600, 400);
+                Scene scene = new Scene(gui, 795, 555);
                 Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 window.setScene(scene);
                 window.show();
@@ -77,7 +75,7 @@ public class editWordController {
 
     public void back(ActionEvent event) throws IOException {
         Parent gui = FXMLLoader.load(getClass().getResource("/fxml/MainGUI.fxml"));
-        Scene scene = new Scene(gui, 600, 400);
+        Scene scene = new Scene(gui, 795, 555);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene);
         window.show();

@@ -18,11 +18,9 @@ public class removeWordController {
     @FXML
     private TextField removeTarget;
     @FXML
-    private Button removeButton;
-    @FXML
     private ListView<String> Listview;
 
-    public void removeAction(ActionEvent event) throws IOException {
+    public void removeAction() {
         if (Listview.getItems().size() != 0) {
             Listview.getItems().clear();
         }
@@ -31,8 +29,10 @@ public class removeWordController {
         removeTarget.setOnKeyPressed(keyEvent -> {
             if (keyEvent.getCode().equals(KeyCode.ENTER)) {
                 ArrayList<String> searcher = DictionaryCommandline.dictionaryManagement.dictionarySearcher(target);
-                for (String temp : searcher) {
-                    Listview.getItems().add(temp);
+                if (searcher != null){
+                    for (String temp : searcher) {
+                        Listview.getItems().add(temp);
+                    }
                 }
             }
         });
@@ -55,7 +55,7 @@ public class removeWordController {
                 DictionaryCommandline.dictionaryManagement.removeWord(target, index);
                 // back to mainGUI
                 Parent gui = FXMLLoader.load(getClass().getResource("/fxml/MainGUI.fxml"));
-                Scene scene = new Scene(gui, 600, 400);
+                Scene scene = new Scene(gui, 795, 555);
                 Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 window.setScene(scene);
                 window.show();
@@ -70,7 +70,7 @@ public class removeWordController {
 
     public void back(ActionEvent event) throws IOException {
         Parent gui = FXMLLoader.load(getClass().getResource("/fxml/MainGUI.fxml"));
-        Scene scene = new Scene(gui, 600, 400);
+        Scene scene = new Scene(gui, 795, 555);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene);
         window.show();
