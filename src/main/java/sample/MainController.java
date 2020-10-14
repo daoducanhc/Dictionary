@@ -151,4 +151,10 @@ public class MainController implements Initializable {
 
     }
 
+    @FXML
+    public void SpeakOnAction(ActionEvent event) throws IOException {
+        GoogleAPI a = new GoogleAPI();
+        a.speak(Target.getText());
+    }
+
 }
