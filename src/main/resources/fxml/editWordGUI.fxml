@@ -7,12 +7,12 @@
     <children>
         <Pane layoutX="21.0" layoutY="14.0" prefHeight="359.0" prefWidth="557.0" style="-fx-background-color: #f0ffff;">
             <children>
-                <TextField fx:id="editTarget" layoutX="57.0" layoutY="72.0" onAction="#editAction" />
+                <TextField fx:id="editTarget" layoutX="57.0" layoutY="72.0" onAction="#editAction" prefHeight="26.0" prefWidth="200.0" />
                 <TextField fx:id="editExplain" layoutX="356.0" layoutY="72.0" />
                 <ListView fx:id="Listview" layoutX="57.0" layoutY="98.0" prefHeight="200.0" prefWidth="200.0" />
                 <Button fx:id="backButton" layoutX="464.0" layoutY="266.0" mnemonicParsing="false" onAction="#back" text="Back" />
-                <Button fx:id="editButton" layoutX="348.0" layoutY="266.0" mnemonicParsing="false" onAction="#edit" text="Edit" />
-            <Label layoutX="108.0" layoutY="43.0" text="Edit Word " />
+                <Button fx:id="editButton" layoutX="348.0" layoutY="266.0" mnemonicParsing="false" onAction="#edit" prefHeight="26.0" prefWidth="50.0" text="Edit" />
+            <Label layoutX="130.0" layoutY="43.0" text="Edit Word " />
             <Label layoutX="417.0" layoutY="43.0" text="Explain" />
             </children>
         </Pane>

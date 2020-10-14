@@ -10,9 +10,9 @@
                 <TextField fx:id="addTarget" layoutX="37.0" layoutY="56.0" />
                 <TextField fx:id="addExplain" layoutX="337.0" layoutY="56.0" />
                 <Label layoutX="101.0" layoutY="30.0" text="Target" />
-                <Label layoutX="411.0" layoutY="30.0" text="Explain" />
-                <Button fx:id="addButton" layoutX="122.0" layoutY="221.0" mnemonicParsing="false" onAction="#add" text="Add" />
-                <Button fx:id="backButton" layoutX="354.0" layoutY="221.0" mnemonicParsing="false" onAction="#back" prefHeight="33.0" prefWidth="62.0" text="Back" />
+                <Label layoutX="398.0" layoutY="30.0" text="Explain" />
+                <Button fx:id="addButton" layoutX="88.0" layoutY="221.0" mnemonicParsing="false" onAction="#add" prefHeight="33.0" prefWidth="68.0" text="Add" />
+                <Button fx:id="backButton" layoutX="380.0" layoutY="221.0" mnemonicParsing="false" onAction="#back" prefHeight="33.0" prefWidth="62.0" text="Back" />
             </children>
         </Pane>
     </children>
