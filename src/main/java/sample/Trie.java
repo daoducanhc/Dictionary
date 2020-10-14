@@ -62,7 +62,7 @@ public class Trie {
                 pointer = pointer.getChildren()[index];
             } else return null;
         }
-        if(pointer.getIdArray() != -1){
+        if (pointer.getIdArray() != -1) {
             result.add(target);
         }
 

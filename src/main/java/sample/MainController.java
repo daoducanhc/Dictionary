@@ -43,7 +43,7 @@ public class MainController implements Initializable {
                 if (!explain.equals("") || (target.length() == 1 || target.length() == 2)) {
                     Explain.setText(explain);
                     ArrayList<String> searcher = DictionaryCommandline.dictionaryManagement.dictionarySearcher(target);
-                    if (searcher != null){
+                    if (searcher != null) {
                         for (String temp : searcher) {
                             Listview.getItems().add(temp);
                         }
