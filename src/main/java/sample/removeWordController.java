@@ -58,7 +58,7 @@ public class removeWordController {
                 DictionaryCommandline.dictionaryManagement.removeWord(target, index);
                 // back to mainGUI
                 Parent gui = FXMLLoader.load(getClass().getResource("/fxml/MainGUI.fxml"));
-                Scene scene = new Scene(gui, 795, 555);
+                Scene scene = new Scene(gui, 730, 555);
                 Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 window.setScene(scene);
                 window.show();
@@ -73,7 +73,7 @@ public class removeWordController {
 
     public void back(ActionEvent event) throws IOException {
         Parent gui = FXMLLoader.load(getClass().getResource("/fxml/MainGUI.fxml"));
-        Scene scene = new Scene(gui, 795, 555);
+        Scene scene = new Scene(gui, 730, 555);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene);
         window.show();
