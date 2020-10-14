@@ -1,120 +1,114 @@
 home	ngôi nhà
-bottle	chai
+bottle	chai, lọ
 glasses	kính
 gas stove	bếp gas
-le minh hoang	dep trai
-heave	phap phong
-eve	dem truoc
-here	o day
-hive	dfsdf
-hove	sdffsd
-breve	fsd
-heavy	dfsfs
-hedge	dfsf
-hence	efsfsd
-name	ten
-mom	me
-dad	bo
-parent	bo me noi chung
-book	sach
+heave	phập phồng
+here	ở đây
+name	tên
+mom	mẹ
+dad	cha
+parent	cha mẹ
+book	sách
 film	phim
-chicken	thit ga
-bedroom	phong ngu
-hotel	khach san
-game	tro choi
-game	giai tri
-game	chuong trinh truyen hinh
-game	dien tu
-ball	bong
-sex	gioi tinh
-house	nha
-hello	xin chao
-low	thap
+chicken	con gà
+bedroom	phòng ngủ
+hotel	khách sạn
+game show	chương trình truyền hình
+game	điện tử
+ball	trái bóng
+sex	giới tính
+house	ngôi nhà
+hello	xin chào
+low	thấp
 high	cao
-chief	dau bep
-illustrate	lam sang to
-illegal	trai luat
-instruction	huong dan
-comment	binh luan
-company	cong ty
-math	toan
-literal	van
-english	tieng anh
-morning	sang
-afternoon	chieu
-evening	toi
-special	dac biet
-eliminate	loai bo
-delete	loai bo
-insert	chen, them vao
-chinese	trung quoc
-vietnam	viet nam
-lunch	trua
-health	suc khoe
-lost	mat
-laugh	cuoi
-project	du an
-quantity	so luong
-translate	phien dich
-transport	phuong tien giao thong
-transform	chuyen doi
-hell	dia nguc
-head	dau
-fill	lam day
-double	gap doi
-full	day
-push	day
-file	tai lieu
-document	tai lieu
-police	canh sat
-guard	ve si
-bag	tui
-bay	vinh
-clock	dong ho
-city	thanh pho
-country	dat nuoc
-province	tinh
-provide	cung cap
-product	san xuat
-production	san pham
-professor	giao su
-profession	chuyen nghiep
-profile	ho so
-process	qua trinh
-probably	co le
-property	cau hinh
-proof	bang chung
-pronoun	phat am
-prohibit	cam
-problem	van de
-soul	tam hon
-scan	truy tim
-union	vung mien
-ultimate	dot pha
-girl	co gai
-boy	chang trai
-beat	nhip dieu
-world	the gioi
-laptop	may tinh xach tay
-source	nguon
-garden	san
-tea	tra
-elephant	voi
-estimate	xap xi
-expect	ky vong
-develope	phat trien
-deep	sau
-lamp	den
-sing	hat
-shout	gao thet
-gun	sung
-allow	cho phep
-all	tat ca
-ant	kien
-author	tac gia
-ancestor	to tien
-array	day, hang
-application	ung dung
-cow	bo
-b	b
-hi	chao
+chief	đầu bếp
+illustrate	làm sáng tỏ
+illegal	phạm luật
+instruction	hướng dẫn
+comment	bình luận
+company	công ty
+math	toán học
+morning	buổi sáng
+afternoon	buổi chiều
+evening	buổi tối
+special	đặc biệt
+eliminate	loại bỏ
+delete	xóa
+insert	thêm vào
+chinese	Trung Quốc
+lunch	buổi trưa
+health	sức khỏe
+lost	mất
+laugh	cười
+project	dự án
+quantity	số lượng
+translate	phiên dịch
+transport	phương tiện giao thông
+transform	chuyển đổi
+hell	địa ngục
+head	đầu
+fill	làm đầy
+double	gấp đôi
+full	đầy
+push	đẩy
+file	tập tin
+document	tài liệu
+police	cảnh sát
+guard	vệ sĩ
+bag	túi
+bay	vịnh
+clock	đồng hồ
+city	thành phố
+country	đất nước
+province	tỉnh
+provide	cung cấp
+product	sản xuất
+production	sản phẩm
+professor	giáo sư
+profession	chuyên nghiệp
+profile	hồ sơ
+process	quá trình
+probably	có khả năng
+property	tài sản
+proof	bằng chứng
+pronounce	phát âm
+prohibit	nghiêm cấm
+problem	vấn đề
+soul	tâm hồn
+scan	quét
+union	vùng miền
+ultimate	đột phá
+girl	cô gái
+boy	chàng trai
+beat	nhịp điệu
+world	thế giới
+laptop	máy tính xách tay
+source	nguồn
+garden	khu vườn
+tea	trà
+elephant	con voi
+estimate	xấp xỉ
+expect	kỳ vọng
+develope	phát triển
+deep	sâu
+lamp	đèn
+sing	hát
+shout	gào thét
+gun	súng
+allow	cho phép
+all	tất cả
+ant	con kiến
+author	tác giả
+ancestor	tổ tiên
+array	dãy, hàng
+application	ứng dụng
+cow	con bò
+hi	chào
+after	sau khi
+address	địa chỉ
+again	lại, lần nữa
+aim	nhắm
+air	không khí
+pig	con lợn
+pillot	phi công
+port	cảng
