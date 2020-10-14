@@ -2,7 +2,6 @@ home	ngôi nhà
 bottle	chai
 glasses	kính
 gas stove	bếp gas
-a	hshs
 le minh hoang	dep trai
 heave	phap phong
 eve	dem truoc
@@ -118,3 +117,4 @@ array	day, hang
 application	ung dung
 cow	bo
 b	b
+hi	chao

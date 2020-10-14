@@ -10,14 +10,6 @@ public class Trie {
         root = new TrieNode();
     }
 
-    public Trie(TrieNode root) {
-        this.root = root;
-    }
-
-    public TrieNode getRoot() {
-        return root;
-    }
-
     public void add(String target, int indexOfArray) {
         target = target.toLowerCase();
         TrieNode pointer = root;
