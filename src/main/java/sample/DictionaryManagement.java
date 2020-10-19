@@ -34,7 +34,7 @@ public class DictionaryManagement {
         while (sc.hasNextLine()) {
             String temp = sc.nextLine();
             String[] words = temp.split("\\t");
-            if (words.length == 2) {
+            if (words.length == 2 && dictionary.storeTargetTrie.isValid(words[0])) {
                 dictionary.Dict.add(new Word(words[0], words[1]));
                 dictionary.storeTargetTrie.add(words[0], dictionary.Dict.size() - 1);
             }

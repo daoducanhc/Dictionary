@@ -10,6 +10,17 @@ public class Trie {
         root = new TrieNode();
     }
 
+    public boolean isValid(String target){
+        for (int i = 0; i < target.length(); i++) {
+            int index = target.charAt(i) - 'a';
+            if (index == -65){
+                continue;
+            }
+            if (index >= 27 || index < 0) return false;
+        }
+        return true;
+    }
+
     public void add(String target, int indexOfArray) {
         target = target.toLowerCase();
         TrieNode pointer = root;
