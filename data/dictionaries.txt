@@ -1422,7 +1422,7 @@ heavy	  adj. /'hevi/ nặng, nặng nề
 heel	  n. /hi:l/  gót chân
 height	  n. /hait/ chiều cao, độ cao; đỉnh, điểm cao
 hell	  n. /hel/ địa ngục
-hello 	 , n. /hз'lou/ chào, xin chào; lời chào
+hello	 , n. /hз'lou/ chào, xin chào; lời chào
 help	  v., n. /'help/ giúp đỡ; sự giúp đỡ
 helpful	  adj. /´helpful/ có ích; giúp đỡ
 hence	  adv. /hens/ sau đây, kể từ đây; do đó, vì thế

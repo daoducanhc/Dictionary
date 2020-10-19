@@ -45,7 +45,10 @@ public class DictionaryManagement {
      * Optimize searching function by Trie.
      */
     public int getIndexByTarget(String target) {
-        return dictionary.storeTargetTrie.search(target);
+        if (dictionary.storeTargetTrie.isValid(target)){
+            return dictionary.storeTargetTrie.search(target);
+        }
+        return dictionary.storeTargetTrie.search("");
     }
 
     public Word getWordByIndex(int index) {
@@ -81,7 +84,10 @@ public class DictionaryManagement {
     }
 
     public ArrayList<String> dictionarySearcher(String target) {
-        return dictionary.storeTargetTrie.suggest(target);
+        if (dictionary.storeTargetTrie.isValid(target)){
+            return dictionary.storeTargetTrie.suggest(target);
+        }
+        return dictionary.storeTargetTrie.suggest("");
     }
 
     public void dictionaryExportToFile() {
