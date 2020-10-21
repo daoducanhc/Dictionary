@@ -3,8 +3,6 @@ package sample;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
-import javafx.concurrent.Task;
-import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -14,7 +12,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
@@ -34,40 +31,9 @@ public class MainController implements Initializable {
     @FXML
     private Button exitButton;
 
-    private static boolean isCanQuery = true;
-
-
+    public static boolean a = true;
     public void textAction(ActionEvent event) {
-//        if (Listview.getItems().size() != 0) {
-//            Listview.getItems().clear();
-//        }
-//        String target = Target.getText().trim();
-//        Target.setOnKeyPressed(keyEvent -> {
-//            if (keyEvent.getCode().equals(KeyCode.ENTER)) {
-//                String explain = DictionaryCommandline.dictionaryManagement.dictionaryLookup(target);
-//
-//                // Could find target or wanna suggested same 1-2 first words
-//                if (!explain.equals("") || (target.length() == 1 || target.length() == 2)) {
-//                    Explain.setText(explain);
-//                    ArrayList<String> searcher = DictionaryCommandline.dictionaryManagement.dictionarySearcher(target);
-//                    if (searcher != null) {
-//                        for (String temp : searcher) {
-//                            Listview.getItems().add(temp);
-//                        }
-//                    }
-//
-//                }
-//                // Couldn't find target
-//                else {
-//                    ArrayList<String> all = DictionaryCommandline.dictionaryManagement.dictionarySearcher("");
-//                    for (String temp : all) {
-//                        if (lcs(target, temp).length() >= target.length() - 1) {
-//                            Listview.getItems().add(temp);
-//                        }
-//                    }
-//                }
-//            }
-//        });
+
         Target.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
@@ -117,20 +83,6 @@ public class MainController implements Initializable {
             }
         });
     }
-
-    private class MyTask extends Task {
-
-        @Override
-        protected Object call() throws Exception {
-            isCanQuery = false;
-            System.out.println(isCanQuery);
-            Thread.sleep(2000);
-            isCanQuery = true;
-            System.out.println(isCanQuery);
-            return null;
-        }
-    }
-
 
     public void add(ActionEvent event) throws IOException {
         Parent add_gui = FXMLLoader.load(getClass().getResource("/fxml/addWordGUI.fxml"));

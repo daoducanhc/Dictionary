@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,7 +13,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -26,13 +27,15 @@ public class editWordController {
     private ListView<String> Listview;
 
     public void editAction() {
-        if (Listview.getItems().size() != 0) {
-            Listview.getItems().clear();
-        }
-        String target = editTarget.getText().trim();
 
-        editTarget.setOnKeyPressed(keyEvent -> {
-            if (keyEvent.getCode().equals(KeyCode.ENTER)) {
+        editTarget.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                if (Listview.getItems().size() != 0) {
+                    Listview.getItems().clear();
+                }
+                String target = editTarget.getText().trim();
+
                 ArrayList<String> searcher = DictionaryCommandline.dictionaryManagement.dictionarySearcher(target);
                 if (searcher != null) {
                     for (String temp : searcher) {
@@ -41,12 +44,12 @@ public class editWordController {
                 }
             }
         });
-
         Listview.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         Listview.setOnMouseClicked(mouseEvent -> {
             ObservableList<String> list1 = Listview.getSelectionModel().getSelectedItems();
             for (String m : list1) {
                 editTarget.setText(m);
+                break;
             }
         });
 
